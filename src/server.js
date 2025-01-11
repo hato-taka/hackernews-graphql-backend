@@ -7,4 +7,11 @@ const typeDefs = gql`
         info: String!
     }
 `
+// リゾルバ関数
+// 定義した値に対して何かしらの実際な値を入れること
+const resolvers = {
+    Query: {
+        info: () => "HackerNewsクローン"
+    }
+}
 
