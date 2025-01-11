@@ -11,3 +11,6 @@ https://www.apollographql.com/docs/
 # 手順
 1. typeDefs で型を定義する
 2. resolvers で型に合わせた、実データを返却する
+
+### readFileSync
+`fs.readFileSync(path[, options]);`

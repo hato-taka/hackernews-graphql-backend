@@ -1,4 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server")
+const fs = require("fs")
+const path = require("path")
 
 // HackerNewsの投稿
 let links = [
@@ -9,24 +11,6 @@ let links = [
     }
 ]
 
-// GraphQLスキーマを定義する
-// スキーマとはデータ構造のこと
-const typeDefs = gql`
-    type Query {
-        info: String!
-        feed: [Link]!
-    }
-
-    type Mutation {
-        post(url: String!, description: String!) : Link!
-    }
-    
-    type Link {
-        id: ID!
-        description: String!
-        url: String!
-    }
-`
 // リゾルバ関数
 // 定義した値に対して何かしらの実際な値を入れること
 const resolvers = {
@@ -52,7 +36,7 @@ const resolvers = {
 }
 
 const server = new ApolloServer({
-    typeDefs,
+    typeDefs: fs.readFileSync(path.join(__dirname, "schema.graphql"), "utf-8"),
     resolvers
 });
 
