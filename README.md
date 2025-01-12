@@ -14,3 +14,7 @@ https://www.apollographql.com/docs/
 
 ### readFileSync
 `fs.readFileSync(path[, options]);`
+
+# Prisma
+マイグレーション: datasource と model をもとにDBを作成すること(SQL文を作成すること)
+`npx prisma migrate dev` 
