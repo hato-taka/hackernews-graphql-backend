@@ -3,38 +3,27 @@ const fs = require("fs")
 const path = require("path")
 
 const {PrismaClient} = require("@prisma/client")
-
-
-
-// HackerNewsの投稿
-let links = [
-    {
-        id: "link-0",
-        description: "テストの投稿です",
-        url: ".com"
-    }
-]
+const { url } = require("inspector")
 
 // リゾルバ関数
 // 定義した値に対して何かしらの実際な値を入れること
 const resolvers = {
     Query: {
         info: () => "HackerNewsクローン",
-        feed: () => links,
+        feed: async(parent, args, context) => {
+            return context.prisma.link.findMany()
+        },
     },
 
     Mutation: {
-        post: (parent, args) => {
-            let idCount = links.length;
-            const link = {
-                id: `link-${idCount++}`,
-                description: args.description,
-                url: args.url
-
-            }
-
-            links.push(link);
-            return link;
+        post: (parent, args, context) => {
+            const newLink = context.prisma.link.create({
+                data: {
+                    url: args.url,
+                    description: args.description
+                }
+            })
+            return newLink
         }
     }
 }

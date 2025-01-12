@@ -27,6 +27,7 @@ https://www.prisma.io/docs/orm/prisma-client/queries/crud#get-all-records
 ```js
 const users = await prisma.user.findMany()
 ```
+SQL の SELECT 文に相当
 
 ## `context`
 resolver ないで使える変数を登録する
