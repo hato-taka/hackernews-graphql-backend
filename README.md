@@ -36,6 +36,8 @@ resolver ないで使える変数を登録する
   データベースのモデルの更新
 2. `npx prisma generate`
 
+スキーマを作成した際は、必ずresolver を設定しないといけない
+
 # import と require
 ## import
 使用環境: ES6 (ECMAScript 2015)以降のモジュールシステム。
@@ -89,5 +91,15 @@ Node.jsで`import`を使用する場合、`package.json`に以下を追加する
 </details>
 
 
+### module.exports と exports の違い
+`module.exports`:
+
+モジュールがエクスポートするオブジェクトそのもの。
+モジュールでエクスポートされる唯一の値を定義します。
+
+`exports`:
+
+module.exports のショートカット（初期値として module.exports を指しています）。
+プロパティを追加することで、module.exports に機能を追加できます。
 
 # 認証の実装
