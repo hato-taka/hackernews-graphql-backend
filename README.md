@@ -32,11 +32,19 @@ SQL の SELECT 文に相当
 ## `context`
 resolver ないで使える変数を登録する
 
+1. `npx prisma migrate [名前]`
+  データベースのモデルの更新
+2. `npx prisma generate`
+
 # import と require
 ## import
 使用環境: ES6 (ECMAScript 2015)以降のモジュールシステム。
 ## require
 使用環境: Node.js（CommonJS）で採用されているモジュールシステム。
+
+<details>
+
+<summary>GPTの解説</summary>
 
 ### **1. `import`**
 - **使用環境:** ES6 (ECMAScript 2015)以降のモジュールシステム。
@@ -77,3 +85,9 @@ Node.jsで`import`を使用する場合、`package.json`に以下を追加する
 ```json
 "type": "module"
 ```
+
+</details>
+
+
+
+# 認証の実装
